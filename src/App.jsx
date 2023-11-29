@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import RandomUUID from 'node: crypto';
 import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
 
 function App() {
   const [tasks, setTasks] = useState ([]); // variable de estado con un arreglo vacio
@@ -9,21 +9,29 @@ function App() {
   
   const addTask = (description) => { // crea un nuevo objeto para el arreglo de tareas
     const newTask = {
-      id: RandomUUID(),
+      id: self.crypto.randomUUID(),
       description: description,
       isCompleted: false,
     };
-    console.log(newTask);
-  }
+    setTasks([...tasks, newTask]);
+  };
+
+  // funcion para borrar tareas
+  const handleDeleteTask = (id) {
+
+  };
   
   return (
     <>
     <h1>Tareas</h1>
       <TaskForm onAddTask={(text) => addTask(text)} />
+      <TaskList tasks={tasks}/>
     </>
   );
 }
 
 export default App;
+
+
 
 

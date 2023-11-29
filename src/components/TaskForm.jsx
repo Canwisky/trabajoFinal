@@ -6,12 +6,13 @@ function Input ({onAddTask}) {  //lo que esta en corchetes es el comunicador ent
         const description = formCapture.get('description');
         // pasarle esta captura a la funcion que crea una nueva tarea
         onAddTask(description);
+        evento.target.reset(); // limpia la cajita
     };
 
     return(
         <form onSubmit={handleSubmit}>
-            <label htmlFor="description">Nueva Tarea</label>
-            <input type="text" name="description" id="description" placeholder="describa la tarea" />
+            <label htmlFor="description">Nueva Tarea </label>
+            <input type="text" name="description" id="description" placeholder="describa la tarea" required />
             <input type="submit" value="crear"/>
         </form>
     );
