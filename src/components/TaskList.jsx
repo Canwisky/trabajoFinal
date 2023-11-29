@@ -5,9 +5,9 @@ function TaskList({ tasks, onDeleteTask, onCrossTask }) {
     return (
         <div> lista de tareas 
             <ul>
-                {tasks.map(t => <li> {t.description} - {t.isCompleted ? "completado " : "pendiente "} 
+                {tasks.map(t => <li style={t.isCompleted ? {textDecoration: "line-through", color: "lightgray"} : undefined}> {t.description} - {t.isCompleted ? "completado " : "pendiente "} 
                 <button onClick={() => onDeleteTask(t.id)}> Borrar </button>
-                <button onClick={() => onCrossTask (t.id)}> Marcar Completado </button>
+                <button onClick={() => onCrossTask (t.id)}> Marcar Completado/ pendiente </button>
                 </li> )}
             </ul>
         </div>
