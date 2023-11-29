@@ -17,15 +17,17 @@ function App() {
   };
 
   // funcion para borrar tareas
-  const handleDeleteTask = (id) {
 
+  const handleDelete = (id) => {
+    const filteredTasks = tasks.filter(t=> t.id !== id);  // obtengo un arreglo sin lo filtrado
+    setTasks([...filteredTasks]); // desestructuro para no mandar un arreglo sino el contenido
   };
   
   return (
     <>
     <h1>Tareas</h1>
       <TaskForm onAddTask={(text) => addTask(text)} />
-      <TaskList tasks={tasks}/>
+      <TaskList onDeleteTask={(id) => handleDelete(id)} tasks={tasks}/>
     </>
   );
 }

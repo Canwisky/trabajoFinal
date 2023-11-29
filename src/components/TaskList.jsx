@@ -1,14 +1,13 @@
 
 
-function TaskList({tasks}) {
-    const handleDelete = (id) => {
-        console.log("borraremos" + id);
-    };
+function TaskList({ tasks, onDeleteTask }) {
+    
     return (
         <div> lista de tareas 
             <ul>
-                {tasks.map(t => <li onClick={handleDelete}> {t.id} - {t.description} - {t.isCompleted ? "terminado" : null } </li> )}
-                <button onclick {() => handleDelete(t.id)}> Borrar </button>
+                {tasks.map(t => <li> {t.description} - {t.isCompleted ? "terminado " : "pendiente "} 
+                <button onClick={() => onDeleteTask(t.id)}> Borrar </button>
+                </li> )}
             </ul>
         </div>
     );
