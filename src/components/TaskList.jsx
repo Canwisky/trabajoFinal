@@ -17,3 +17,5 @@ function TaskList({ tasks, onDeleteTask, onCrossTask }) {
 // se llama a la funcion con un callback para poder pasarle un parametro?
 
 export default TaskList;
+
+
